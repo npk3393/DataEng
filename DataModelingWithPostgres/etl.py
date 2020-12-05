@@ -5,6 +5,9 @@ import pandas as pd
 from sql_queries import *
 
 def get_files(filepath):
+    """
+    Please do not instantiate this method. This method is deprecated. Please use the process_data method.
+    """
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root,'*.json'))
@@ -13,7 +16,13 @@ def get_files(filepath):
     return all_files
 
 def process_song_file(cur, filepath):
+    """
+    Process song file will take the following inputs:
+    cur - cursor point for the database connection
+    filepath - path of file
     
+    and inserts song records into the songs table along with artists records into the artists table
+    """
     song_files = get_files(filepath)
     # open song file
     df = pd.DataFrame(pd.read_json(filepath,lines=True))
@@ -28,6 +37,14 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """
+    Process log file will take the following inputs:
+    cur - cursor point for the database connection
+    filepath - path of file
+    
+    drops missing values, loads the user table, songplay records,by executing a query from tables that was loaded previously.
+    """
+    
     # open log file
     df = pd.DataFrame(pd.read_json(filepath,lines=True))
 
@@ -79,6 +96,16 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """
+    process data method will take the following inputs:
+    cur - cursor point for the database connection
+    filepath - path of file
+    conn - database connection itself
+    func - passing a function as a paramter of another function
+    
+    scans through the folder, identifies all JSON documents, gets all the files matching the extension,
+    executes the function that is passed in the main method
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -98,6 +125,10 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    """
+    defining all parameters for database connection and cursor; instantiating the process data function with all necessary parameters being passed
+  
+    """
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
 
