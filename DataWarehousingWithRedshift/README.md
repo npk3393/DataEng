@@ -50,6 +50,8 @@ Compound Sort Keys are made up of all the columns that are listed in the Redshif
 
 My compound sort keys design can speed up joins, GROUP BY and ORDER BY operations, and window functions that use PARTITION BY.
 
+My ETL script takes data from Amazon S3 and loads them into the staging environment in Amazon Redshift. Once successfully loaded, the script then loads the data mart from the staging environment (also in Redshift). Most of the code is removed to protect my personally identifiable information.
+
 ## Reference
 
 -https://www.fernandomc.com/posts/redshift-epochs-and-timestamps/
