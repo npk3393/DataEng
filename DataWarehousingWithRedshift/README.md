@@ -14,9 +14,9 @@ personally identifiable information and data sets are not available in this repo
 
 ## Project Datasets
 
--Song data: s3://udacity-dend/song_data
--Log data: s3://udacity-dend/log_data
--Log data json path: s3://udacity-dend/log_json_path.json
+- Song data: `s3://udacity-dend/song_data` <br>
+- Log data: `s3://udacity-dend/log_data` <br>
+- Log data json path: `s3://udacity-dend/log_json_path.json`
 
 ## Data Mart Model
 
