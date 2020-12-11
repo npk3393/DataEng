@@ -50,8 +50,6 @@ Compound Sort Keys are made up of all the columns that are listed in the Redshif
 
 My compound sort keys design can speed up joins, GROUP BY and ORDER BY operations, and window functions that use PARTITION BY.
 
-You'll be able to test your database and ETL pipeline by running queries given to you by the analytics team from Sparkify and compare your results with their expected results.
-
 ## Reference
 
 -https://www.fernandomc.com/posts/redshift-epochs-and-timestamps/
