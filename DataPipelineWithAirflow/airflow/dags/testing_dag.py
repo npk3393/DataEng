@@ -32,7 +32,7 @@ stage_songs_to_redshift = StageToRedshiftOperator(
     dag=dag
 )
 
-load_songplays_table = LoadFactOperator(
+load_songplays_table = LoadFactOperator( 
     task_id='Load_songplays_fact_table',
     dag=dag
 )
